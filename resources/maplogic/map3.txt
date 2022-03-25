@@ -1,0 +1,66 @@
+21 23
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 0 
+0 1 0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 1 0 
+0 1 0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 1 0  
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 
+0 1 0 0 0 1 0 1 1 0 0 0 0 0 1 1 0 1 0 0 0 1 0 
+0 1 1 1 1 1 0 1 1 1 1 0 1 1 1 1 0 1 1 1 1 1 0 
+0 1 0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 1 0  
+0 1 1 1 0 1 0 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 
+0 0 0 0 0 1 0 1 1 1 1 0 1 1 1 1 0 1 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  
+0 0 0 0 0 1 0 1 1 1 1 0 1 1 1 1 0 1 0 0 0 0 0 
+0 1 1 1 0 1 0 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 
+0 1 0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 1 0 
+0 1 1 1 1 1 0 1 1 1 1 0 1 1 1 1 0 1 1 1 1 1 0 
+0 1 0 0 0 1 0 1 1 0 0 0 0 0 1 1 0 1 0 0 0 1 0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 
+0 1 0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 1 0 
+0 1 0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 1 0 
+0 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+
+public void update() {
+        if (dir == 0) {
+        } else if (dir == r) {
+            if (canMove(ghostGreen_X + ghostSpeed, ghostGreen_Y)) {
+                ghostGreen_X += ghostSpeed;
+            } else {
+                dir = randomGhost.nextInt(1, 5);
+            }
+        } else if (dir == l) {
+            if (canMove(ghostGreen_X - ghostSpeed, ghostGreen_Y)) {
+                ghostGreen_X -= ghostSpeed;
+            } else {
+                dir = randomGhost.nextInt(1, 5);
+            }
+        } else if (dir == d) {
+            if (canMove(ghostGreen_X, ghostGreen_Y + ghostSpeed)) {
+                ghostGreen_Y += ghostSpeed;
+            } else {
+                dir = randomGhost.nextInt(1, 5);
+            }
+        } else if (dir == u) {
+            if (canMove(ghostGreen_X, ghostGreen_Y - ghostSpeed)) {
+                ghostGreen_Y -= ghostSpeed;
+            } else {
+                dir = randomGhost.nextInt(1, 5);
+            }
+        }
+    }
+
+    public void draw(Graphics g) {
+        if (dir == 0) {
+            g.drawImage(image, ghostGreen_X, ghostGreen_Y, null);
+        } else if (dir == r) {
+            g.drawImage(imageRight, ghostGreen_X, ghostGreen_Y, null);
+        } else if (dir == l) {
+            g.drawImage(imageLeft, ghostGreen_X, ghostGreen_Y, null);
+        } else if (dir == u) {
+            g.drawImage(imageUp, ghostGreen_X, ghostGreen_Y, null);
+        } else if (dir == d) {
+            g.drawImage(imageDown, ghostGreen_X, ghostGreen_Y, null);
+        }
+    }
