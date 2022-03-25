@@ -166,7 +166,7 @@ public class Pacman {
 
     public void draw(Graphics g) {
         MapObject map = GameJpanel.map;
-        if (!GameJpanel.running && enterKeyCode != 5) {
+        if (!GameJpanel.running) {
             enterKeyCode = 0;
             g.drawImage(pacman, pacmanX, pacmanY, null);
         }

@@ -94,8 +94,8 @@ public class Brick {
     }
 
     public Rectangle getRectFood(int x, int y) {
-        return new Rectangle(getImageX(x) + 2, getImageY(y) + 2,
-                imageFood.getWidth(null) - 4, imageFood.getHeight(null) - 4);
+        return new Rectangle(getImageX(x) + 3, getImageY(y) + 3,
+                imageFood.getWidth(null) - 6, imageFood.getHeight(null) - 4);
     }
 
     public void draw(Graphics g) {
